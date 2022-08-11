@@ -26,27 +26,27 @@ COUNT = 0
 PAGE_NO = 1
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading"
-    STATUS_DOWNLOADING = "Downloading"
-    STATUS_CLONING = "Cloning"
-    STATUS_WAITING = "Queued"
-    STATUS_PAUSED = "Paused"
-    STATUS_ARCHIVING = "Archiving"
-    STATUS_EXTRACTING = "Extracting"
-    STATUS_SPLITTING = "Splitting"
-    STATUS_CHECKING = "CheckingUp"
-    STATUS_SEEDING = "Seeding"
+    STATUS_UPLOADING = "Uploading 💜"
+    STATUS_DOWNLOADING = "Downloading To Server Please Wait ⛈️"
+    STATUS_CLONING = "Cloning ♻️ Please Wait"
+    STATUS_WAITING = "Queued...😪"
+    STATUS_PAUSED = "Paused...🚫"
+    STATUS_ARCHIVING = "Archiving...🔐"
+    STATUS_EXTRACTING = "Extracting...🔑"
+    STATUS_SPLITTING = "Splitting...🔪"
+    STATUS_CHECKING = "CheckingUp...🧾"
+    STATUS_SEEDING = "Seeding 🌱"
 
 class EngineStatus:
-    STATUS_ARIA = "Aria2c"
-    STATUS_GD = "Google Api"
-    STATUS_MEGA = "Mega Api"
-    STATUS_QB = "Bittorrent"
-    STATUS_TG = "Pyrogram"
-    STATUS_YT = "YT-dlp"
+    STATUS_ARIA = "Aria2c v1.35.0"
+    STATUS_GD = "Google Api v2.51.0"
+    STATUS_MEGA = "Mega Api v3.12.0"
+    STATUS_QB = "Bittorrent v4.4.3"
+    STATUS_TG = "Pyrogram v2.0.27"
+    STATUS_YT = "YT-dlp v22.5.18"
     STATUS_EXT = "pExtract"
-    STATUS_SPLIT = "FFmpeg"
-    STATUS_ZIP = "p7zip"
+    STATUS_SPLIT = "FFmpeg v2.9.1"
+    STATUS_ZIP = "p7zip v16.02"
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
