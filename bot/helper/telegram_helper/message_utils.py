@@ -3,15 +3,15 @@ from telegram import InlineKeyboardMarkup
 from telegram.message import Message
 from telegram.error import RetryAfter
 from pyrogram.errors import FloodWait
-from bot import AUTO_DELETE_MESSAGE_DURATION, LOGGER, status_reply_dict, status_reply_dict_lock, \
-                Interval, DOWNLOAD_STATUS_UPDATE_INTERVAL, RSS_CHAT_ID, bot, rss_session
+from os import remove
+from bot import *
 from bot.helper.ext_utils.bot_utils import get_readable_message, setInterval
 
 def sendMessage(text: str, bot, message: Message):
     try:
         return bot.sendMessage(message.chat_id,
                             reply_to_message_id=message.message_id,
-                            text=text, allow_sending_without_reply=True, parse_mode='HTMl', disable_web_page_preview=True)
+                            text=text, allow_sending_without_reply=True, parse_mode='HTML', disable_web_page_preview=True)
     except RetryAfter as r:
         LOGGER.warning(str(r))
         sleep(r.retry_after * 1.5)
@@ -25,7 +25,7 @@ def sendMarkup(text: str, bot, message: Message, reply_markup: InlineKeyboardMar
         return bot.sendMessage(message.chat_id,
                             reply_to_message_id=message.message_id,
                             text=text, reply_markup=reply_markup, allow_sending_without_reply=True,
-                            parse_mode='HTMl', disable_web_page_preview=True)
+                            parse_mode='HTML', disable_web_page_preview=True)
     except RetryAfter as r:
         LOGGER.warning(str(r))
         sleep(r.retry_after * 1.5)
@@ -38,7 +38,7 @@ def editMessage(text: str, message: Message, reply_markup=None):
     try:
         bot.editMessageText(text=text, message_id=message.message_id,
                               chat_id=message.chat.id,reply_markup=reply_markup,
-                              parse_mode='HTMl', disable_web_page_preview=True)
+                              parse_mode='HTML', disable_web_page_preview=True)
     except RetryAfter as r:
         LOGGER.warning(str(r))
         sleep(r.retry_after * 1.5)
@@ -50,7 +50,7 @@ def editMessage(text: str, message: Message, reply_markup=None):
 def sendRss(text: str, bot):
     if rss_session is None:
         try:
-            return bot.sendMessage(RSS_CHAT_ID, text, parse_mode='HTMl', disable_web_page_preview=True)
+            return bot.sendMessage(RSS_CHAT_ID, text, parse_mode='HTML', disable_web_page_preview=True)
         except RetryAfter as r:
             LOGGER.warning(str(r))
             sleep(r.retry_after * 1.5)
@@ -83,11 +83,38 @@ def sendLogFile(bot, message: Message):
                           reply_to_message_id=message.message_id,
                           chat_id=message.chat_id)
 
+def sendFile(bot, message: Message, name: str, caption=""):
+    try:
+        with open(name, 'rb') as f:
+            bot.sendDocument(document=f, filename=f.name, reply_to_message_id=message.message_id,
+                             caption=caption, parse_mode='HTML',chat_id=message.chat_id)
+        remove(name)
+        return
+    except RetryAfter as r:
+        LOGGER.warning(str(r))
+        sleep(r.retry_after * 1.5)
+        return sendFile(bot, message, name, caption)
+    except Exception as e:
+        LOGGER.error(str(e))
+        return
+
 def auto_delete_message(bot, cmd_message: Message, bot_message: Message):
     if AUTO_DELETE_MESSAGE_DURATION != -1:
         sleep(AUTO_DELETE_MESSAGE_DURATION)
         try:
             # Skip if None is passed meaning we don't want to delete bot xor cmd message
+            deleteMessage(bot, cmd_message)
+            deleteMessage(bot, bot_message)
+        except AttributeError:
+            pass
+
+def auto_delete_upload_message(bot, cmd_message: Message, bot_message: Message):
+    if cmd_message.chat.type == 'private':
+        pass
+    elif AUTO_DELETE_UPLOAD_MESSAGE_DURATION != -1:
+        sleep(AUTO_DELETE_UPLOAD_MESSAGE_DURATION)
+        try:
+            # Skip if None is passed meaning we don't want to delete bot or cmd message
             deleteMessage(bot, cmd_message)
             deleteMessage(bot, bot_message)
         except AttributeError:
@@ -116,7 +143,7 @@ def update_all_messages(force=False):
         for chat_id in status_reply_dict:
             if status_reply_dict[chat_id] and msg != status_reply_dict[chat_id][0].text:
                 if buttons == "":
-                    editMessage(msg, status_reply_dict[chat_id])
+                    rmsg = editMessage(msg, status_reply_dict[chat_id][0])
                 else:
                     rmsg = editMessage(msg, status_reply_dict[chat_id][0], buttons)
                 if rmsg == "Message to edit not found":
