@@ -1,14 +1,11 @@
 # Implemented by https://github.com/junedkh
 
 from random import random, choice
-
 from cfscrape import create_scraper
 from base64 import b64encode
 from urllib.parse import quote, unquote
 from urllib3 import disable_warnings
-
 from bot import LOGGER, SHORTENER, SHORTENER_API
-
 
 def short_url(longurl):
     if SHORTENER is None and SHORTENER_API is None:
