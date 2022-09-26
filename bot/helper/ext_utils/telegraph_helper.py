@@ -1,9 +1,11 @@
+# Implement By - @VarnaX-279
+
 from string import ascii_letters
 from random import SystemRandom
 from time import sleep
 from telegraph import Telegraph
 from telegraph.exceptions import RetryAfterError
-from bot import LOGGER, TITLE_NAME
+from bot import *
 
 class TelegraphHelper:
     def __init__(self, author_name=None, author_url=None):
@@ -72,4 +74,9 @@ class TelegraphHelper:
             )
         return
 
-telegraph=TelegraphHelper(f'{TITLE_NAME}', 'https://github.com/shuvam-dawn/MLTB-Custom-UI')
+try:
+    telegraph=TelegraphHelper(f'{TITLE_NAME}', 'https://github.com/Dawn-India/Z-Mirror')
+except Exception as err:
+    LOGGER.warning(f"Can't Create Telegraph Account: {err}")
+    telegraph = None
+    pass
