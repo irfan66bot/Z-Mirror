@@ -1,8 +1,6 @@
 anytree
-appdirs
 aria2p
 asyncio
-attrdict
 beautifulsoup4
 bencoding
 cfscrape
@@ -27,5 +25,5 @@ requests
 telegraph
 tenacity
 tgCrypto
-urllib3
+xattr
 yt-dlp
