@@ -23,7 +23,7 @@ try:
             with open('config.env', 'wb+') as f:
                 f.write(res.content)
         else:
-            log_error(f"Failed to load config.env {res.status_code}")
+            log_error(f"Failed to download config.env {res.status_code}")
     except Exception as e:
         log_error(f"CONFIG_FILE_URL: {e}")
 except:
@@ -37,19 +37,19 @@ try:
     if len(UPSTREAM_REPO) == 0:
        raise TypeError
 except:
-    UPSTREAM_REPO = "https://github.com/Dawn-India/Z-Mirror"
+    UPSTREAM_REPO = "https://github.com/weebzone/WZML"
 try:
     if len(UPSTREAM_BRANCH) == 0:
        raise TypeError
 except:
-    UPSTREAM_BRANCH = 'h-code'
+    UPSTREAM_BRANCH = 'update'
 
 if ospath.exists('.git'):
     srun(["rm", "-rf", ".git"])
 
 update = srun([f"git init -q \
-                 && git config --global user.email shuvam.dawn12345@gmail.com \
-                 && git config --global user.name Dawn-India \
+                 && git config --global user.email doc.adhikari@gmail.com \
+                 && git config --global user.name Karan \
                  && git add . \
                  && git commit -sm update -q \
                  && git remote add origin {UPSTREAM_REPO} \
@@ -60,7 +60,6 @@ if update.returncode == 0:
     log_info('Successfully updated with latest commit from UPSTREAM_REPO')
     log_info(f'Upstream Repo: {UPSTREAM_REPO}')
     log_info(f'Upstream Branch: {UPSTREAM_BRANCH}')
-    log_info('Thanks For Deploying Z-Mirror')
 else:
     log_error('Something went wrong while updating, check UPSTREAM_REPO if valid or not!')
     log_info(f'Entered Upstream Repo: {UPSTREAM_REPO}')

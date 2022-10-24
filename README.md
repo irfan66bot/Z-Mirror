@@ -1,119 +1,87 @@
-# Heroku Deploy
+<p align="center">
+    <a href="https://github.com/weebzone/WZML">
+        <kbd>
+            <img width="250" src="https://telegra.ph/file/496644cbabaeb916e3616.png" alt="WeebZone Logo">
+        </kbd>
+    </a>
+</p>
 
-**Important Notes**
-1. Generate all your private files from master branch (token.pickle, config.env, drive_folder, cookies.txt etc...) since the generators not available in heroku branch but you should add the private files in heroku branch not in master or use variables links in `config.env`.
-2. Don't add variables in heroku Environment, you can only add `CONFIG_FILE_URL`.
-3. Don't deploy using hmanager or github integration.
-4. This branch use megasdkrest and latest version of qBittorrent.
-5. More notes will be added soon for h-code branch...
+<p align="center">
+<div align=center>
 
-------
+[![GitHub forks](https://img.shields.io/github/forks/weebzone/WZML?style=social)](https://github.com/weebzone/WZML/fork)
+[![GitHub followers](https://img.shields.io/github/followers/weebzone?style=social&label=weebzone%20Followers)](https://github.com/weebzone)
 
-## Deploy With CLI
+----
 
-- Clone this repo:
-```
-git clone https://github.com/Dawn-India/Z-Mirror && cd Z-Mirror
-```
-- Switch to heroku branch
-  - **NOTE**: Don't commit changes in master branch. If you have committed your changes in master branch and after that you switched to heroku branch, the new added files(private files) will `NOT` appear in heroku branch.
-```
-git checkout heroku
-```
-- After adding your private files
-```
-git add . -f
-```
-- Commit your changes
-```
-git commit -m token
-```
-- Login to heroku
-```
-heroku login
-```
-- Create heroku app
-```
-heroku create --region us YOURAPPNAME
-```
-- Add remote
-```
-heroku git:remote -a YOURAPPNAME
-```
-- Create container
-```
-heroku stack:set container
-```
-- Push to heroku
-```
-git push heroku heroku:master -f
-```
+[![](https://img.shields.io/github/repo-size/weebzone/WZML?color=green&label=Repo%20Size&labelColor=292c3b)](#) [![](https://img.shields.io/github/commit-activity/m/weebzone/WZML?logo=github&labelColor=292c3b&label=Github%20Commits)](#) [![](https://img.shields.io/github/license/weebzone/WZML?style=flat&label=License&labelColor=292c3b)](#)|[![](https://img.shields.io/github/issues-raw/weebzone/WZML?style=flat&label=Open%20Issues&labelColor=292c3b)](#) [![](https://img.shields.io/github/issues-closed-raw/weebzone/WZML?style=flat&label=Closed%20Issues&labelColor=292c3b)](#) [![](https://img.shields.io/github/issues-pr-raw/weebzone/WZML?style=flat&label=Open%20Pull%20Requests&labelColor=292c3b)](#) [![](https://img.shields.io/github/issues-pr-closed-raw/weebzone/WZML?style=flat&label=Closed%20Pull%20Requests&labelColor=292c3b)](#)
+:---:|:---:|
+[![](https://img.shields.io/github/languages/count/weebzone/WZML?style=flat&label=Total%20Languages&labelColor=292c3b&color=blueviolet)](#) [![](https://img.shields.io/github/languages/top/weebzone/WZML?style=flat&logo=python&labelColor=292c3b)](#) [![](https://img.shields.io/github/last-commit/weebzone/WZML?style=flat&label=Last%20Commit&labelColor=292c3b&color=important)](#) [![](https://badgen.net/github/branches/weebzone/WZML?label=Total%20Branches&labelColor=292c3b)](#)|[![](https://img.shields.io/github/forks/weebzone/WZML?style=flat&logo=github&label=Forks&labelColor=292c3b&color=critical)](#) [![](https://img.shields.io/github/stars/weebzone/WZML?style=flat&logo=github&label=Stars&labelColor=292c3b&color=yellow)](#) [![](https://badgen.net/docker/pulls/codewithweeb/weebzone?icon=docker&label=Pulls&labelColor=292c3b&color=blue)](#)
+[![](https://img.shields.io/badge/Telegram%20Channel-Join-9cf?style=for-the-badge&logo=telegram&logoColor=blue&style=flat&labelColor=292c3b)](https://t.me/WeebZone_updates) |[![](https://img.shields.io/badge/Support%20Group-Join-9cf?style=for-the-badge&logo=telegram&logoColor=blue&style=flat&labelColor=292c3b)](https://t.me/WeebZ) |
 
-------
+</div>
 
-### Extras
+----
 
-- To create heroku-postgresql database
-```
-heroku addons:create heroku-postgresql
-```
-- To delete the app
-```
-heroku apps:destroy YOURAPPNAME
-```
-- To restart dyno
-```
-heroku restart
-```
-- To turn off dyno
-```
-heroku ps:scale web=0
-```
-- To turn on dyno
-```
-heroku ps:scale web=1
-```
-- To set heroku variable
-```
-heroku config:set VARNAME=VARTEXT
-```
-- To get live logs
-```
-heroku logs -t
+## ***WeebZone MLTB***
+
+<div align=center>
+
+ℹ️ A Powerful Pyrogram Based Telegram Mirror Leech Bot Modded by Codewithweeb to directly Mirror to Google Drive or Leech to Telegram, with Multi Direct Links Support for Enhanced Mirroring & Leeching.|
+---|
+    
+### ***Source Code*** : [Repo](https://github.com/weebzone/WZML)
+
+#### Note: `If you Like My Work, Give Stars ⭐ to the Repo and Follow Me on Github`
+    
+----
+</div>
+</p>
+
+### 1. [***Getting Started***](https://github.com/weebzone/WZML/wiki/Getting-Started)
+Introduction To the Bot
+
+### 2. [***Features***](https://github.com/weebzone/WZML/wiki/Features)
+List of features supported by bot
+
+### 3. [***config.env Variables***](https://github.com/weebzone/WZML/wiki/Setting-up-the-config.env-file)
+List of Variables used by the Bot
+
+### 4. [***Deploy***](https://github.com/weebzone/WZML/wiki/Deployment)
+Steps to Deploy the Bot to Run for Yourself
+
+---
+
+## License ⚠️
+
+[![](https://www.gnu.org/graphics/gplv3-with-text-136x68.png)](https://www.gnu.org/licenses/gpl-3.0.html)
+
+```text
+Copyright (C) 2022 WeebZone
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. < https://github.com/weebzone/WZML/blob/update/LICENSE >.
 ```
 
-------
+---
 
-## Deploy With Github Workflow
+## Contributors 🏆
+<details>
+    <summary><b>Click Here For Description</b></summary>
 
-1. Go to Repository Settings -> Secrets
+|![](https://avatars.githubusercontent.com/u/113664541)|![](https://avatars.githubusercontent.com/u/77075674)|![](https://avatars.githubusercontent.com/u/94453305)|![](https://avatars.githubusercontent.com/u/56303690)|![](https://avatars.githubusercontent.com/u/91935990)|![](https://avatars.githubusercontent.com/u/80155750)|
+|---|---|---|---|---|---|
+|[`CodeWithWeeb`](https://github.com/weebzone)|[`Anasty17`](https://github.com/anasty17)|[`Ajay Choudhary`](https://github.com/ajay0916) |[`Arshsisodiya`](https://github.com/arshsisodiya/helios-mirror) |[`ToxyTech`](https://github.com/dipeshpatil123)|[`MysterySD`](https://github.com/5MysterySD)|
+| `me` add modules and fixes & many more|Base Repo|For suggestion & fixing| For there BOT_PM and LOG feature| For Task Limit| For Help and PIXIBAY Support|
 
-![Secrets](https://telegra.ph/file/9d6ed26f8981c2d2f226c.jpg)
-
-2. Add the below Required Variables one by one by clicking New Repository Secret every time.
-
-   - HEROKU_EMAIL: Heroku Account Email Id in which the above app will be deployed
-   - HEROKU_API_KEY: Your Heroku API key, get it from https://dashboard.heroku.com/account
-   - HEROKU_APP_NAME: Your Heroku app name, Name Must be unique
-   - CONFIG_FILE_URL: Copy [This](https://raw.githubusercontent.com/anasty17/mirror-leech-telegram-bot/master/config_sample.env) in any text editor.Remove the _____REMOVE_THIS_LINE_____=True line and fill the variables. For details about config you can see Here. Go to https://gist.github.com and paste your config data. Rename the file to config.env then create secret gist. Click on Raw, copy the link. This will be your CONFIG_FILE_URL. Refer to below images for clarity.
-
-![Steps from 1 to 3](https://telegra.ph/file/2a27cf34dc0bdba885de9.jpg)
-
-![Step 4](https://telegra.ph/file/fb3b92a1d2c3c1b612ad0.jpg)
-
-![Step 5](https://telegra.ph/file/f0b208e4ea980b575dbe2.jpg)
-
-3. Remove commit id from raw link to be able to change variables without updating the CONFIG_FILE_URL in secrets. Should be in this form: https://gist.githubusercontent.com/username/gist-id/raw/config.env
-   - Before: https://gist.githubusercontent.com/anasty17/8cce4a4b4e7f4ea47e948b2d058e52ac/raw/19ba5ab5eb43016422193319f28bc3c7dfb60f25/config.env
-   - After: https://gist.githubusercontent.com/anasty17/8cce4a4b4e7f4ea47e948b2d058e52ac/raw/config.env
-
-4. Add all your private files in this branch or use variables links in `config.env`.
-
-5. After adding all the above Required Variables go to Github Actions tab in your repository.
-   - Select Manually Deploy to Heroku workflow as shown below:
-
-![Select Manual Deploy](https://telegra.ph/file/cff1c24de42c271b23239.jpg)
-
-6. Choose `heroku` branch and click on Run workflow
-
-![Run Workflow](https://telegra.ph/file/f44c7465d58f9f046328b.png)
+</details>
